@@ -7,11 +7,14 @@ specifiers:
   autoprefixer: 10.4.14
   eslint: 8.42.0
   eslint-config-next: 13.4.4
+  framer-motion: ^10.12.16
   next: 13.4.4
   next-sanity: ^4.3.3
   postcss: 8.4.24
   react: 18.2.0
   react-dom: 18.2.0
+  react-external-link: ^2.2.0
+  react-social-icons: ^5.15.0
   sanity: ^3.11.5
   styled-components: 6.0.0-rc.3
   tailwindcss: 3.3.2
@@ -24,11 +27,14 @@ dependencies:
   autoprefixer: 10.4.14_postcss@8.4.24
   eslint: 8.42.0
   eslint-config-next: 13.4.4_tizxnkcvjrb4cldxgwq5h3lj5u
+  framer-motion: 10.12.16_biqbaboplfbrettd7655fr4n2y
   next: 13.4.4_biqbaboplfbrettd7655fr4n2y
   next-sanity: 4.3.3_mgbx3cwu23arknwyheo6bpdzxy
   postcss: 8.4.24
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-external-link: 2.2.0_biqbaboplfbrettd7655fr4n2y
+  react-social-icons: 5.15.0_react@18.2.0
   sanity: 3.11.5_vrggsuwjkf7ljw5hcih7cym44a
   styled-components: 6.0.0-rc.3_biqbaboplfbrettd7655fr4n2y
   tailwindcss: 3.3.2
@@ -6189,6 +6195,16 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-external-link/2.2.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-XH7XFvnsF4/ERKBoROOkh1f+YMWK4swXGB7l3OqrTzlABKYuOpD0QybOnDIMoc58vAjtiwRTRKE/UqMRoRD2xQ==}
+    peerDependencies:
+      react: ^17.0 || ^18.0
+      react-dom: ^17.0 || ^18.0
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
   /react-fast-compare/3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
     dev: false
@@ -6247,6 +6263,15 @@ packages:
       react: 18.2.0
       rxjs: 7.8.1
       use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
+
+  /react-social-icons/5.15.0_react@18.2.0:
+    resolution: {integrity: sha512-khfDgUiUwEBe34T6br2+mkXQg3hLVDdviVjexxZoVCsogMgxTy/m8+KlX/j6Wa7P2BPxgZ7yZ2jXw3X06pUUFQ==}
+    peerDependencies:
+      react: 15.x.x || 16.x.x || 17.x.x || 18.x.x
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:

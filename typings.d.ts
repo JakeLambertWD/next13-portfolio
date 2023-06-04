@@ -1,5 +1,3 @@
-import { PortableTextBlock } from "sanity";
-
 interface SanityBody {
   _createdAt: string;
   _id: string;
@@ -15,10 +13,59 @@ interface Image {
   };
 }
 
-interface Project extends SanityBody {
+export interface PageInfo extends SanityBody {
+  _type: "pageInfo";
   name: string;
-  slug: string;
+  role: string;
+  heroImage: Image;
+  backgroundInformation: string;
+  profilePic: Image;
+  phoneNumber: string;
+  email: string;
+  address: string;
+  socials: Social[];
+}
+
+export interface Experience extends SanityBody {
+  _type: "experience";
+  company: string;
+  companyImage: Image;
+  dateStarted: string;
+  dateEnded: string;
+  isCurrentlyWorkingHere: boolean;
+  jobTitle: string;
+  points: string[];
+  technologies: Technology[];
+  company: string;
+}
+
+export interface Project extends SanityBody {
+  _type: "project";
   image: Image;
+  linkToBuild: string;
+  linkToCode: string;
+  summary: string;
+  technologies: Technology[];
+  title: string;
+  points: string[];
+}
+
+export interface Social extends SanityBody {
+  _type: "social";
+  title: string;
   url: string;
-  content: PortableTextBlock[];
+}
+
+export interface Skill extends SanityBody {
+  _type: "skill";
+  image: Image;
+  progress: number;
+  title: string;
+}
+
+export interface Technology extends SanityBody {
+  _type: "skill";
+  image: Image;
+  progress: number;
+  title: string;
 }
