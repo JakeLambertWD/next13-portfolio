@@ -14,7 +14,7 @@ const skill = {
       title: "Progress",
       type: "number",
       description: "Progress of skill 0 - 100%",
-      validation: (Rule) => Rule.min(0).max(100),
+      validation: (Rule: any) => Rule.min(0).max(100),
     },
     {
       name: "image",
