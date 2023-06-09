@@ -1,42 +1,48 @@
+import exp from "constants";
+
 const project = {
   name: "project",
-  title: "Projects",
+  title: "Project",
   type: "document",
   fields: [
     {
-      name: "name",
-      title: "Name",
+      name: "title",
+      title: "Title",
+      description: "Title of the project",
       type: "string",
-    },
-    {
-      name: "slug",
-      title: "Slug",
-      type: "slug",
-      options: { source: "name" },
     },
     {
       name: "image",
       title: "Image",
       type: "image",
       options: { hotspot: true },
-      fields: [
-        {
-          name: "alt",
-          title: "Alt",
-          type: "string",
-        },
-      ],
     },
     {
-      name: "url",
-      title: "URL",
+      name: "summary",
+      title: "Summary",
+      type: "text",
+    },
+    {
+      name: "technologies",
+      title: "Technologies",
+      type: "array",
+      of: [{ type: "reference", to: { type: "skill" } }],
+    },
+    {
+      name: "linkToBuild",
+      title: "LinkToBuild",
       type: "url",
     },
     {
-      name: "content",
-      title: "Content",
+      name: "linkToCode",
+      title: "LinkToCode",
+      type: "url",
+    },
+    {
+      name: "points",
+      title: "Points",
       type: "array",
-      of: [{ type: "block" }],
+      of: [{ type: "string" }],
     },
   ],
 };
