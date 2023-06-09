@@ -11,7 +11,7 @@ type Props = {
   pageInfo: PageInfo;
 };
 
-export default function Hero({ pageInfo }: Props) {
+export default function Hero({ pageInfo }: any) {
   const [text, count] = useTypewriter({
     words: [
       "npm i jake-lambert",
