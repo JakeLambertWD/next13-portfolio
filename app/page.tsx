@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import BackToTop from "@/components/BackToTop";
 import ContactMe from "@/components/ContactMe";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -42,15 +43,7 @@ export default async function Home() {
         <ContactMe />
       </section>
 
-      {/* <Link href="#hero">
-        <footer className="sticky w-full cursor-pointer bottom-7 bottom-5 tooltip" data-tip="Back to Top">
-          <div className="avatar online">
-            <div className="w-16 rounded-full">
-              <Image src={urlFor(pageInfo?.heroImage).url()} width="100%" height="100%" alt="Profile pic" />
-            </div>
-          </div>
-        </footer>
-      </Link> */}
+      <BackToTop pageInfo={pageInfo} />
     </div>
   );
 }
