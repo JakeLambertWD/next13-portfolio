@@ -44,7 +44,7 @@ export default function Hero({ pageInfo }: any) {
           <Cursor cursorColor="#f7ab0a" />
         </h1>
 
-        <div className="pt-5">
+        <div className="pt-4">
           <Link href="#experience">
             <button className="heroButton">Experience</button>
           </Link>
