@@ -22,7 +22,10 @@ export async function getPageinfo(): Promise<PageInfo[]> {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  return client.fetch(groq`*[_type == "project"]`);
+  return client.fetch(groq`*[_type == "project"]{
+    ...,
+    technologies[]->
+  }`);
 }
 
 export async function getSkill(): Promise<Skill[]> {
@@ -35,6 +38,7 @@ export async function getSocials(): Promise<Social[]> {
 
 // helper function to pull all our images from Sanity
 const builder = imageUrlBuilder(config);
+
 export function urlFor(source: any) {
   return builder.image(source);
 }
