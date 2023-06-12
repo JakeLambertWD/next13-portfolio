@@ -22,9 +22,7 @@ export default function ContactMe() {
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl">Contact me</h3>
 
       <div className="flex flex-col space-y-10">
-        <h4 className="text-lg sm:text-4xl font-semibold text-center hidden sm:block">
-          If you like what you see, contact me!
-        </h4>
+        <h4 className="text-lg sm:text-4xl font-semibold text-center ">If you like what you see, contact me!</h4>
 
         <div className="space-y-6 sm:space-y-10">
           <div className="flex justify-start sm:justify-center space-x-5 ">
