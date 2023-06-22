@@ -22,7 +22,7 @@ export default function About({ pageInfo }: any) {
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="mt-8 mb-10 lg:mb-0  flex-shrink-0 rounded-full w-40  md:w-52 md:h-52 lg:w-96 lg:h-96 object-cover md:rounded-lg"
+        className="mt-14 mb-10 lg:mb-0  flex-shrink-0 rounded-full w-40  md:w-52 md:h-52 lg:w-96 lg:h-96 object-cover md:rounded-lg"
       />
 
       <div className="px-0 md:px-20 lg:ml-12">
