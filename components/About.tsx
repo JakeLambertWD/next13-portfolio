@@ -8,12 +8,7 @@ type Props = { pageInfo: PageInfo };
 
 export default function About({ pageInfo }: any) {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-      className="relative flex flex-col items-center h-screen px-4 sm:px-10 mx-auto text-center lg:text-left lg:flex-row max-w-7xl justify-center"
-    >
+    <div className="relative flex flex-col items-center h-screen px-4 sm:px-10 mx-auto text-center lg:text-left lg:flex-row max-w-7xl justify-center">
       <h3 className="absolute top-20 sm:top-24 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl">About</h3>
 
       <motion.img
@@ -31,6 +26,6 @@ export default function About({ pageInfo }: any) {
           {pageInfo?.backgroundInformation}
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 }

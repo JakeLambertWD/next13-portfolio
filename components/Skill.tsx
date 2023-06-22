@@ -15,10 +15,7 @@ export default function Skill({ directionBottom, tech }: Props) {
 
   return (
     <div className="relative flex cursor-pointer group tooltip" data-tip={tech?.title}>
-      <motion.img
-        initial={{ y: directionBottom ? -200 : 200, opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        whileInView={{ y: 0, opacity: 1 }}
+      <img
         src={urlFor(tech?.image).url()}
         className={clsx(
           "object-contain w-14 h-14 filter transition duration-100 ease-in rounded-lg",
