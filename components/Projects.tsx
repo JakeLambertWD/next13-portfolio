@@ -31,15 +31,9 @@ export default function Projects({ personalProjects }: Props) {
               className="card glass w-[350px] md:w-[350px] h-[530px] md:h-[600px] mt-20 snap-center flex-shrink-0 mx-8 opacity-90 transition-opacity hover:opacity-100 duration-100"
             >
               <figure>
-                <motion.img
-                  viewport={{ once: true }}
-                  initial={{ y: 100 }}
-                  whileInView={{ y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="w-full object-cover h-[250px]"
+                <img
+                  className="w-full object-cover h-[150px] md:h-[250px]"
                   src={urlFor(project?.image).url()}
-                  height={250}
-                  width={550}
                   alt="car!"
                 />
               </figure>
