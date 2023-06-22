@@ -18,10 +18,10 @@ export default function ContactMe() {
   };
 
   return (
-    <div className="relative flex flex-col items-center h-screen max-w-full px-2 sm:px-10 mx-auto overflow-hidden text-left md:flex-row justify-evenly">
+    <div className="relative flex flex-col items-center h-screen  px-2 sm:px-10 mx-auto overflow-hidden text-left md:flex-row justify-evenly">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl">Contact me</h3>
 
-      <div className="flex flex-col space-y-10">
+      <div className="flex flex-col space-y-10 bg-red-200">
         <h4 className="text-lg sm:text-4xl font-semibold text-center ">If you like what you see, contact me!</h4>
 
         <div className="space-y-6 sm:space-y-10">
