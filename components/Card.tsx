@@ -9,20 +9,17 @@ type Props = { experience: Experience };
 export default function Card({ experience }: Props) {
   return (
     <article className="card glass flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[400px] md:w-[600px] snap-center bg-[#292929] p-10 pt-0 md:pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
-      <div className="h-24 md:h-32 w-full flex items-center justify-center">
-        <motion.img
-          initial={{ y: -100, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          className={`object-cover object-center w-[200px] my-0 md:my-5`}
+      <div className="h-[110px] md:h-[150px] flex items-center justify-center">
+        <img
+          className={`object-cover object-center my-7 mx-auto w-[${
+            experience.company === "VGD Limited" ? "150px" : "200px"
+          }] md:w-[${experience.company === "VGD Limited" ? "200px" : "300px"}]`}
           src={urlFor(experience?.companyImage).url()}
           alt="Profile pic"
         />
-        {/* w-[${experience.company === "VGD Limited" ? "200px" : "300px"}] */}
       </div>
+
       <div className="px-0 md:px-10 w-full">
-        {/* <div className="flex justify-between items-end"> */}
         <p className="text-2xl font-light mb-3">{experience?.jobTitle}</p>
         <p className="text-gray-300 uppercase text-sm">
           {experience?.dateStarted} -{" "}
@@ -34,7 +31,6 @@ export default function Card({ experience }: Props) {
             experience?.dateEnded
           )}
         </p>
-        {/* </div> */}
 
         <div className="flex my-5 space-x-3">
           {experience?.technologies?.map((technology) => {
@@ -46,7 +42,7 @@ export default function Card({ experience }: Props) {
           })}
         </div>
 
-        <ul className="ml-2 space-y-2 overflow-y-scroll text-base list-disc max-h-96 pr-2 overflow-y-scroll h-48">
+        <ul className="ml-2 space-y-2 overflow-y-scroll text-base list-disc max-h-96 pr-2 overflow-y-scroll h-48 md:h-56 lg:h-64">
           {experience?.points?.map((point, i) => (
             <li key={i}>{point}</li>
           ))}
