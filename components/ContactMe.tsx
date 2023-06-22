@@ -21,8 +21,8 @@ export default function ContactMe() {
     <div className="relative flex flex-col items-center h-screen  px-2 sm:px-10 mx-auto overflow-hidden text-left md:flex-row justify-evenly">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl">Contact me</h3>
 
-      <div className="flex flex-col space-y-10 bg-blue-200 w-[350px]">
-        <h4 className="text-lg sm:text-4xl font-semibold text-center ">If you like what you see, contact me!</h4>
+      <div className="flex flex-col space-y-10 w-[350px] md:w-fit">
+        <h4 className="text-lg sm:text-4xl font-semibold text-center mt-5">If you like what you see, contact me!</h4>
 
         <div className="space-y-6 sm:space-y-10">
           <div className="flex justify-start sm:justify-center space-x-5 ">
@@ -41,18 +41,14 @@ export default function ContactMe() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mx-auto space-y-2 w-fit">
-          <div className="flex space-x-2">
-            <input {...register("name")} placeholder="Name" className="contactInput" type="text" />
-            <input {...register("email")} placeholder="Email" className="contactInput" type="email" />
-          </div>
-
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col mx-auto space-y-1 w-[350px] md:w-[500px]">
+          <input {...register("name")} placeholder="Name" className="contactInput" type="text" />
+          <input {...register("email")} placeholder="Email" className="contactInput" type="email" />
           <input {...register("subject")} placeholder="Subject" className="contactInput" type="text" />
-
           <textarea {...register("message")} placeholder="Message" className="contactInput" />
           <button
             type="submit"
-            className="bg-[#f7ab0a] py-3 sm:py-5 px-4 sm:px-10 rounded-md text-black font-bold text-sm sm:text-lg"
+            className="bg-[#f7ab0a] py-3 sm:py-5 px-2 sm:px-10 rounded-md text-black font-bold text-sm sm:text-lg"
           >
             Submit
           </button>
