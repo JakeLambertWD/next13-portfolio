@@ -8,7 +8,7 @@ const { motion } = require("framer-motion");
 type Props = { experience: Experience };
 export default function Card({ experience }: Props) {
   return (
-    <article className="card glass flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[400px] md:w-[600px] snap-center bg-[#292929] p-10 pt-0 md:pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
+    <article className="card glass flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[350px] md:w-[600px] snap-center bg-[#292929] p-10 pt-0 md:pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
       <div className="h-[110px] md:h-[150px] flex items-center justify-center">
         <img
           className={`object-cover object-center my-7 mx-auto w-[${
