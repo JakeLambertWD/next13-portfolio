@@ -8,17 +8,18 @@ const { motion } = require("framer-motion");
 type Props = { experience: Experience };
 export default function Card({ experience }: Props) {
   return (
-    <article className="card glass flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[400px] md:w-[600px] snap-center bg-[#292929] p-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
-      <div className="h-32 w-full flex items-center justify-center">
+    <article className="card glass flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[400px] md:w-[600px] snap-center bg-[#292929] p-10 pt-0 md:pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
+      <div className="h-24 md:h-32 w-full flex items-center justify-center">
         <motion.img
           initial={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.5 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className={`object-cover object-center w-[${experience.company === "VGD Limited" ? "200px" : "300px"}] my-5`}
+          className={`object-cover object-center w-[200px] my-0 md:my-5`}
           src={urlFor(experience?.companyImage).url()}
           alt="Profile pic"
         />
+        {/* w-[${experience.company === "VGD Limited" ? "200px" : "300px"}] */}
       </div>
       <div className="px-0 md:px-10 w-full">
         {/* <div className="flex justify-between items-end"> */}
@@ -45,7 +46,7 @@ export default function Card({ experience }: Props) {
           })}
         </div>
 
-        <ul className="ml-2 space-y-2 overflow-y-scroll text-base list-disc max-h-96 pr-2  ">
+        <ul className="ml-2 space-y-2 overflow-y-scroll text-base list-disc max-h-96 pr-2 overflow-y-scroll h-48">
           {experience?.points?.map((point, i) => (
             <li key={i}>{point}</li>
           ))}
