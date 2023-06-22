@@ -26,7 +26,6 @@ export default function Projects({ personalProjects }: Props) {
       <div className="scrollbar p-16 scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 scrollbar-thin relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
         {personalProjects.map((project, i) => {
           return (
-            // TODO: find a way to have the middle child start in the center
             <div
               key={i}
               className="card glass w-[450px] h-[600px] snap-center flex-shrink-0 mx-8 opacity-90 transition-opacity hover:opacity-100 duration-100"
