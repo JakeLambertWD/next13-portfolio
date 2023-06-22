@@ -31,7 +31,7 @@ export default function Skills({ technologies }: Props) {
         Hover over a skill for current proficiency
       </h3>
 
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-4 gap-8 mt-28 md:mt-0">
         {removeUnwanted?.slice(0, removeUnwanted.length / 2).map((tech) => (
           <Skill key={tech._id} tech={tech} directionBottom />
         ))}
