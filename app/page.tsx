@@ -43,7 +43,7 @@ export default async function Home() {
         <ContactMe />
       </section>
 
-      <BackToTop pageInfo={pageInfo} />
+      {/* <BackToTop pageInfo={pageInfo} /> */}
     </div>
   );
 }
