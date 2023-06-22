@@ -28,7 +28,7 @@ export default function Projects({ personalProjects }: Props) {
           return (
             <div
               key={i}
-              className="card glass w-[450px] h-[600px] snap-center flex-shrink-0 mx-8 opacity-90 transition-opacity hover:opacity-100 duration-100"
+              className="card glass w-[350px] md:w-[350px] h-[570px] md:h-[600px] mt-20 snap-center flex-shrink-0 mx-8 opacity-90 transition-opacity hover:opacity-100 duration-100"
             >
               <figure>
                 <motion.img
