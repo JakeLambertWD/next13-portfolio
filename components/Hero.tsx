@@ -6,6 +6,7 @@ import { BackgroundCircles } from "./BackgroundCircles";
 import Link from "next/link";
 import { PageInfo } from "../typings";
 import { urlFor } from "@/sanity/sanity-utils";
+const { motion } = require("framer-motion");
 
 type Props = {
   pageInfo: PageInfo;
@@ -27,12 +28,10 @@ export default function Hero({ pageInfo }: any) {
   return (
     <div className="relative flex flex-col items-center justify-center h-screen space-y-6 overflow-hidden text-center">
       <BackgroundCircles />
-      <Image
-        className="mx-auto rounded-full  object-cover object-center"
+      <motion.img
+        className="mx-auto rounded-full object-cover object-center w-32 md:w-48"
         src={urlFor(pageInfo?.heroImage).url()}
         alt={pageInfo?.name}
-        width={200}
-        height={200}
       />
       <div className="z-20">
         <h2 className="uppercase text-sm text-gray-500 pb-2 tracking-[16px]">{pageInfo?.role}</h2>
