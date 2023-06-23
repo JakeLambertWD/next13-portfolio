@@ -6,7 +6,6 @@ import { BackgroundCircles } from "./BackgroundCircles";
 import Link from "next/link";
 import { PageInfo } from "../typings";
 import { urlFor } from "@/sanity/sanity-utils";
-const { motion } = require("framer-motion");
 
 type Props = {
   pageInfo: PageInfo;
@@ -14,14 +13,7 @@ type Props = {
 
 export default function Hero({ pageInfo }: any) {
   const [text, count] = useTypewriter({
-    words: [
-      "npm i jake-lambert",
-      "installing...",
-      "done!",
-      // `Hi, The Name is ${pageInfo?.name}`,
-      // "Coffee-fuels-the-best-code.tsx",
-      // "<ForeverEvolvingIndustry />",
-    ],
+    words: ["npm i jake-lambert", "installing...", "done!"],
     delaySpeed: 2000,
   });
 

@@ -14,16 +14,18 @@ type Props = {
   personalProjects: Project[];
 };
 export default function Projects({ personalProjects }: Props) {
+  const reverseProjects = personalProjects.slice().sort().reverse();
+
   return (
     <div className="relative z-0 flex flex-col items-center h-screen max-w-full mx-auto overflow-hidden text-left md:flex-row justify-evenly">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">Projects</h3>
 
       <div className="scrollbar p-3  scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 scrollbar-thin relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
-        {personalProjects.map((project, i) => {
+        {reverseProjects.map((project, i) => {
           return (
             <div
               key={i}
-              className="card glass w-[350px] md:w-[350px] h-[530px] md:h-[600px] mt-20 snap-center flex-shrink-0 mx-8 opacity-90 transition-opacity hover:opacity-100 duration-100"
+              className="card glass w-[350px] md:w-[450px] h-[530px] md:h-[600px] mt-20 snap-center flex-shrink-0 mx-8 md: mx-4 opacity-90 transition-opacity hover:opacity-100 duration-100"
             >
               <figure>
                 <img
