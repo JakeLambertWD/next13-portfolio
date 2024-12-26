@@ -7,10 +7,13 @@ import Link from "next/link";
 const BackToTop = ({ pageInfo }: any) => {
   return (
     <Link href="#hero">
-      <footer className="sticky w-full cursor-pointer bottom-7 bottom-5 tooltip" data-tip="Back to Top">
+      <footer
+        className="sticky w-full cursor-pointer bottom-7 bottom-5 tooltip"
+        data-tip="Back to Top"
+      >
         <div className="avatar online">
           <Image
-            className="mx-auto rounded-full  object-cover object-center"
+            className="mx-auto rounded-full object-cover object-center w-24 h-24"
             src={urlFor(pageInfo?.heroImage).url()}
             alt={pageInfo?.name}
             width={50}

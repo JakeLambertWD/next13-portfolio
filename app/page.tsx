@@ -6,7 +6,13 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
-import { getPageinfo, getSocials, getExperience, getSkill, getProjects } from "@/sanity/sanity-utils";
+import {
+  getPageinfo,
+  getSocials,
+  getExperience,
+  getSkill,
+  getProjects,
+} from "@/sanity/sanity-utils";
 
 export default async function Home() {
   const socials = await getSocials();
