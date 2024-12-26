@@ -13,7 +13,7 @@ export default function Card({ experience }: Props) {
       <div className="h-[100px] md:h-[150px] flex items-center justify-center">
         <img
           className={`object-cover object-center mb-7 mt-14 ${
-            experience.company === "Anmut" ? "mt-[-30px]" : "mt-1"
+            experience.company === "Anmut" ? "mt-[-30px]" : "mt-0"
           } mx-auto w-[200px] ${
             experience.company === "VGD Limited"
               ? "md:w-[180px]"
