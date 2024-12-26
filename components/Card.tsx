@@ -12,8 +12,8 @@ export default function Card({ experience }: Props) {
     <article className="card glass flex flex-col rounded-lg items-center space-y-1 flex-shrink-0 w-[350px] md:w-[430px] snap-center bg-[#292929] p-5 pt-2  md:pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
       <div className="h-[100px] md:h-[150px] flex items-center justify-center">
         <img
-          className={`object-cover object-center mb-7 mt-14 ${
-            experience.company === "Anmut" ? "mt-[-30px]" : "mt-0"
+          className={`object-cover object-center mb-7 ${
+            experience.company === "Anmut" ? "mt-[-30px]" : ""
           } mx-auto w-[200px] ${
             experience.company === "VGD Limited"
               ? "md:w-[180px]"
