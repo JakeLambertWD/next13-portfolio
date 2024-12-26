@@ -29,16 +29,16 @@ export default async function Home() {
         <Hero pageInfo={pageInfo} />
       </section>
 
-      <section id="experience" className="snap-center">
-        <WorkExperience experiences={experiences} />
+      <section id="projects" className="snap-center">
+        <Projects personalProjects={projects} />
       </section>
 
       <section id="skills" className="snap-center">
         <Skills technologies={skills} />
       </section>
 
-      <section id="projects" className="snap-center">
-        <Projects personalProjects={projects} />
+      <section id="experience" className="snap-center">
+        <WorkExperience experiences={experiences} />
       </section>
 
       <section id="about" className="snap-center">
