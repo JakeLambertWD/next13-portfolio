@@ -18,14 +18,16 @@ export default function Projects({ personalProjects }: Props) {
 
   return (
     <div className="relative z-0 flex flex-col items-center h-screen max-w-full mx-auto overflow-hidden text-left md:flex-row justify-evenly">
-      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">Projects</h3>
+      <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+        Projects
+      </h3>
 
-      <div className="scrollbar p-3  scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 scrollbar-thin relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
+      <div className="scrollbar p-3 scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 scrollbar-thin relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory z-20">
         {reverseProjects.map((project, i) => {
           return (
             <div
               key={i}
-              className="card glass w-[350px] md:w-[450px] h-[530px] md:h-[600px] mt-20 snap-center flex-shrink-0 mx-8 md: mx-4 opacity-90 transition-opacity hover:opacity-100 duration-100"
+              className="card glass w-[350px] md:w-[420px] h-[530px] md:h-[580px] mt-32 snap-center flex-shrink-0 mx-8 md: mx-4 opacity-90 transition-opacity hover:opacity-100 duration-100"
             >
               <figure>
                 <img
@@ -41,8 +43,17 @@ export default function Projects({ personalProjects }: Props) {
                   <div className="flex space-x-3 pb-5 ">
                     {project?.technologies?.map((tech) => {
                       return (
-                        <div key={tech?._id} className="tooltip" data-tip={tech.title}>
-                          <Image src={urlFor(tech?.image).url()} height={30} width={30} alt="Tech" />
+                        <div
+                          key={tech?._id}
+                          className="tooltip"
+                          data-tip={tech.title}
+                        >
+                          <Image
+                            src={urlFor(tech?.image).url()}
+                            height={30}
+                            width={30}
+                            alt="Tech"
+                          />
                         </div>
                       );
                     })}
@@ -51,10 +62,14 @@ export default function Projects({ personalProjects }: Props) {
 
                 <div className="card-actions mb-6 mx-auto">
                   <ExternalLink href={project?.linkToBuild}>
-                    <button className="btn btn-primary btn-sm">View site</button>
+                    <button className="btn btn-primary btn-sm">
+                      View site
+                    </button>
                   </ExternalLink>
                   <ExternalLink href={project?.linkToCode}>
-                    <button className="btn btn-primary btn-sm">View code</button>
+                    <button className="btn btn-primary btn-sm">
+                      View code
+                    </button>
                   </ExternalLink>
                 </div>
 
