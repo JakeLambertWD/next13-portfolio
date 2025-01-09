@@ -42,7 +42,7 @@ export default function ContactMe() {
           <div className="flex justify-start sm:justify-center space-x-5">
             <MapPinIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" />
             <p className="text-lg sm:text-xl">
-              29 Cross Street, Islington, London
+              Islington, London
             </p>
           </div>
         </div>
