@@ -36,7 +36,7 @@ export default function ContactMe() {
 
           <div className="flex justify-start sm:justify-center space-x-5">
             <EnvelopeIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" />
-            <p className="text-lg sm:text-xl">jakelambert1@hotmail.co.uk</p>
+            <p className="text-lg sm:text-xl">jakelambert1@icloud.com</p>
           </div>
 
           <div className="flex justify-start sm:justify-center space-x-5">
