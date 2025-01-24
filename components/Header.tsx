@@ -17,7 +17,12 @@ export default function Header({ socials }: Props) {
 
           return (
             <ExternalLink key={icon._id} href={icon.url}>
-              <SocialIcon network={titleToLowerCase} key={icon._id} fgColor="gray" bgColor="transparent" />
+              <SocialIcon
+                network={titleToLowerCase}
+                key={icon._id}
+                fgColor="gray"
+                bgColor="transparent"
+              />
             </ExternalLink>
           );
         })}
@@ -26,7 +31,9 @@ export default function Header({ socials }: Props) {
       <Link href="#contact">
         <div className="flex flex-row items-center text-gray-300 cursor-pointer">
           <SocialIcon network="email" fgColor="gray" bgColor="transparent" />
-          <p className="hidden text-sm text-gray-400 uppercase md:inline-flex">Get In Touch!</p>
+          <p className="hidden text-sm text-gray-400 uppercase md:inline-flex">
+            Get In Touch!
+          </p>
         </div>
       </Link>
     </header>

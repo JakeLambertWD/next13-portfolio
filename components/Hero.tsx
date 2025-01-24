@@ -1,15 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { Cursor, useTypewriter } from "react-simple-typewriter";
 import { BackgroundCircles } from "./BackgroundCircles";
-import Link from "next/link";
-import { PageInfo } from "../typings";
 import { urlFor } from "@/sanity/sanity-utils";
-
-type Props = {
-  pageInfo: PageInfo;
-};
 
 export default function Hero({ pageInfo }: any) {
   const [text, count] = useTypewriter({
@@ -40,21 +33,6 @@ export default function Hero({ pageInfo }: any) {
           </code>
           <Cursor cursorColor="#f7ab0a" />
         </h1>
-
-        <div className="pt-4">
-          <Link href="#experience">
-            <button className="heroButton">Experience</button>
-          </Link>
-          <Link href="#skills">
-            <button className="heroButton">Skills</button>
-          </Link>
-          <Link href="#projects">
-            <button className="heroButton">Projects</button>
-          </Link>
-          <Link href="#about">
-            <button className="heroButton">About</button>
-          </Link>
-        </div>
       </div>
     </div>
   );
