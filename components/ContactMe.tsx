@@ -1,7 +1,9 @@
 "use client";
 
 import { PhoneIcon, MapPinIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import emailjs from "@emailjs/browser";
 
 type FormInputs = {
   name: string;
@@ -13,8 +15,39 @@ type FormInputs = {
 export default function ContactMe() {
   const { register, handleSubmit } = useForm<FormInputs>();
 
-  const onSubmit: SubmitHandler<FormInputs> = (formData) => {
-    window.location.href = `mailto:jakelambert1@icloud.com?subject=${formData.subject}&from=${formData.email}&body=Hi, my name is ${formData.name}. ${formData.message}`;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const sendEmail = (data: FormInputs) => {
+    const templateParams = {
+      from_name: data.name,
+      from_email: data.email,
+      to_name: "Jake Lambert",
+      subject: data.subject,
+      message: data.message,
+    };
+
+    emailjs
+      .send(
+        "service_r0ku83v",
+        "template_fmcd1ly",
+        templateParams,
+        "user_dmJWXF83Ofz8Ghy0TLQbP"
+      )
+      .then(
+        (result) => {
+          alert("Message sent successfully!");
+          setName("");
+          setEmail("");
+          setSubject("");
+          setMessage("");
+        },
+        (error) => {
+          alert("Failed to send message, please try again.");
+        }
+      );
   };
 
   return (
@@ -46,37 +79,45 @@ export default function ContactMe() {
         </div>
 
         <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col mx-auto space-y-1 w-[350px] md:w-[500px]"
+          onSubmit={handleSubmit(sendEmail)}
+          className="flex flex-col space-y-2 w-full mx-auto"
         >
           <input
             {...register("name")}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             placeholder="Name"
             className="contactInput"
             type="text"
           />
           <input
             {...register("email")}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             className="contactInput"
             type="email"
           />
           <input
             {...register("subject")}
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
             placeholder="Subject"
             className="contactInput"
             type="text"
           />
           <textarea
             {...register("message")}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             placeholder="Message"
             className="contactInput"
           />
           <button
             type="submit"
-            className="bg-[#f7ab0a] py-3 sm:py-5 px-2 sm:px-10 rounded-md text-black font-bold text-sm sm:text-lg"
+            className="bg-blue-500 text-white py-2 px-4 rounded"
           >
-            Submit
+            Send
           </button>
         </form>
       </div>
