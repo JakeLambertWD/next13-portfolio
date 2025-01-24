@@ -14,7 +14,7 @@ export default function ContactMe() {
   const { register, handleSubmit } = useForm<FormInputs>();
 
   const onSubmit: SubmitHandler<FormInputs> = (formData) => {
-    window.location.href = `mailto:jakelambert1@hotmail.co.uk?subject=${formData.subject}&body=Hi, my name is ${formData.name}. ${formData.message}`;
+    window.location.href = `mailto:jakelambert1@icloud.com?subject=${formData.subject}&from=${formData.email}&body=Hi, my name is ${formData.name}. ${formData.message}`;
   };
 
   return (
@@ -41,9 +41,7 @@ export default function ContactMe() {
 
           <div className="flex justify-start sm:justify-center space-x-5">
             <MapPinIcon className="text-[#f7ab0a] h-7 w-7 animate-pulse" />
-            <p className="text-lg sm:text-xl">
-              Islington, London
-            </p>
+            <p className="text-lg sm:text-xl">Islington, London</p>
           </div>
         </div>
 
