@@ -39,3 +39,7 @@ body {
     /* @apply bg-[#f7ab0a] py-5 px-10 rounded-md text-black font-bold text-lg */
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

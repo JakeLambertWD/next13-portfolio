@@ -115,7 +115,7 @@ export default function ContactMe() {
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded"
+            className="bg-[#f7ab0a] py-3 sm:py-5 px-2 sm:px-10 rounded-md text-black font-bold text-sm sm:text-lg"
           >
             Send
           </button>
