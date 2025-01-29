@@ -13,20 +13,23 @@ type FormInputs = {
 };
 
 export default function ContactMe() {
-  const { register, handleSubmit } = useForm<FormInputs>();
+  const { register } = useForm<FormInputs>();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const sendEmail = (data: FormInputs) => {
+  const sendEmail = (e: any) => {
+    e.preventDefault();
+
     const templateParams = {
-      from_name: data.name,
-      from_email: data.email,
+      from_name: name,
+      from_email: "jakelambert1@icloud.com",
       to_name: "Jake Lambert",
-      subject: data.subject,
-      message: data.message,
+      subject: subject,
+      message: message,
+      email: email,
     };
 
     emailjs
@@ -34,7 +37,7 @@ export default function ContactMe() {
         "service_r0ku83v",
         "template_fmcd1ly",
         templateParams,
-        "user_dmJWXF83Ofz8Ghy0TLQbP"
+        "bsystnI8-oL6ESNKr"
       )
       .then(
         (result) => {
@@ -79,7 +82,7 @@ export default function ContactMe() {
         </div>
 
         <form
-          onSubmit={handleSubmit(sendEmail)}
+          onSubmit={sendEmail}
           className="flex flex-col space-y-2 w-full mx-auto"
         >
           <input

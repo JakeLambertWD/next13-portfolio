@@ -9,6 +9,8 @@ import { NAVIGATION_LINKS } from "@/app/constants";
 type Props = { socials: Social[] };
 
 export default function Header({ socials }: Props) {
+  // TODO: copy code from another project to change the favicon
+
   return (
     <header className="sticky top-0 z-20 flex justify-between px-12 py-2 mx-auto max-w-8xl bg-[#242424]">
       <div className="flex flex-row items-start">
