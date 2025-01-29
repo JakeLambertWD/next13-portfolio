@@ -22,7 +22,7 @@ export async function getPageinfo(): Promise<PageInfo[]> {
 }
 
 export async function getProjects(): Promise<Project[]> {
-  return client.fetch(groq`*[_type == "project"]{
+  return client.fetch(groq`*[_type == "project"] | order(order asc){
     ...,
     technologies[]->
   }`);
