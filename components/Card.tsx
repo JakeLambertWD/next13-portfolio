@@ -6,6 +6,10 @@ import { urlFor } from "@/sanity/sanity-utils";
 
 type Props = { experience: Experience };
 export default function Card({ experience }: Props) {
+  // TODO: Edit the project screenshots in Lightroom
+  // TODO: Edit technology icons to a cartoon design for example using AI
+  // TODO: Edit Company logos in Lightroom
+
   return (
     <article className="card glass flex flex-col rounded-lg items-center space-y-1 flex-shrink-0 w-[350px] md:w-[430px] snap-center bg-[#292929] p-5 pt-2  md:pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
       <div className="h-[100px] md:h-[150px] flex items-center justify-center">

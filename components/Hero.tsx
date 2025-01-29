@@ -19,7 +19,7 @@ export default function Hero({ pageInfo }: any) {
         alt={pageInfo?.name}
       />
       <div className="z-20">
-        <h2 className="uppercase text-sm text-gray-500 pb-2 tracking-[16px]">
+        <h2 className="uppercase text-sm text-gray-500 pb-4 tracking-[16px]">
           {pageInfo?.role}
         </h2>
 
