@@ -5,10 +5,12 @@ const { motion } = require("framer-motion");
 import { Experience } from "../typings";
 import Card from "./Card";
 
-// TODO remove the opacity on hover, try to make it when card in center of screen
 type Props = { experiences: Experience[] };
 
 export default function WorkExperience({ experiences }: Props) {
+  // TODO remove the opacity on hover, try to make it when card in center of screen
+  // TODO: Add the Database skill to the work experience
+
   return (
     <div className="relative flex flex-col items-center justify-evenly h-screen max-w-full px-1 md:px-10 mx-auto overflow-hidden text-left md:flex-row">
       <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">

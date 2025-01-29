@@ -11,8 +11,6 @@ type Props = {
 };
 
 export default function Skill({ directionBottom, tech }: Props) {
-  // TODO sort icons into a rainbow
-
   return (
     <div
       className="relative flex cursor-pointer group tooltip"
