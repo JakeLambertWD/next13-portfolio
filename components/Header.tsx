@@ -68,13 +68,15 @@ export default function Header({ socials }: Props) {
         })}
       </div>
 
-      <nav className="flex flex-row space-x-2 items-center text-gray-300 cursor-pointer ">
+      <nav className="hidden md:flex absolute right-8 top-4 flex flex-col items-end text-gray-300 cursor-pointer">
         {sections.map((section) => (
           <a
             key={section}
             href={`#${section}`}
-            className={`text-xs py-2 text-gray-400 uppercase md:inline-flex ${
-              activeSection === section ? "border-b-2 border-[#f7ab0a]" : ""
+            className={`text-xs text-right cursor-pointer py-1 text-gray-400 uppercase md:inline-flex ${
+              activeSection === section
+                ? "border-r-2 pr-2 border-[#f7ab0a]"
+                : ""
             }`}
             style={{ fontFamily: "monospace" }}
           >
