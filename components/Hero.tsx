@@ -14,11 +14,11 @@ export default function Hero({ pageInfo }: any) {
     <div className="relative flex flex-col items-center justify-center h-screen space-y-6 overflow-hidden text-center">
       <BackgroundCircles />
       <img
-        className="mx-auto rounded-full object-cover object-center w-24 h-24 md:w-48 md:h-48 z-[100]"
+        className="mx-auto rounded-full object-cover object-center w-24 h-24 md:w-48 md:h-48"
         src={urlFor(pageInfo?.heroImage).url()}
         alt={pageInfo?.name}
       />
-      <div className="z-20">
+      <div>
         <h2 className="uppercase text-sm text-gray-500 pb-4 tracking-[16px]">
           {pageInfo?.role}
         </h2>
@@ -34,7 +34,13 @@ export default function Hero({ pageInfo }: any) {
           <Cursor cursorColor="#f7ab0a" />
         </h1>
 
-        <p>RESUME</p>
+        <button
+          className="btn bg-transparent btn-sm mt-6 border border-[#f7ab0a] hover:bg-[#f7ab0a] hover:text-[black] text-[#f7ab0a] cursor-pointer"
+          style={{ zIndex: 102 }}
+          onClick={() => console.log("Resume clicked")}
+        >
+          Resume
+        </button>
       </div>
     </div>
   );
