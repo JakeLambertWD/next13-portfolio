@@ -33,6 +33,8 @@ export default function Hero({ pageInfo }: any) {
           </code>
           <Cursor cursorColor="#f7ab0a" />
         </h1>
+
+        <p>RESUME</p>
       </div>
     </div>
   );

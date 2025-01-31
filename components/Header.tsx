@@ -2,9 +2,9 @@
 
 import { SocialIcon } from "react-social-icons";
 import { ExternalLink } from "react-external-link";
-import Link from "next/link";
 import { Social } from "../typings";
 import { NAVIGATION_LINKS } from "@/app/constants";
+import { Link } from "react-daisyui";
 
 type Props = { socials: Social[] };
 
@@ -17,19 +17,24 @@ export default function Header({ socials }: Props) {
           const titleToLowerCase = icon.title.toLocaleLowerCase();
 
           return (
-            <ExternalLink key={icon._id} href={icon.url}>
+            <div
+              key={icon._id}
+              onClick={() =>
+                window.open(icon.url, "_blank", "noopener noreferrer")
+              }
+              style={{ cursor: "pointer" }}
+            >
               <SocialIcon
                 network={titleToLowerCase}
-                key={icon._id}
                 fgColor="gray"
                 bgColor="rgb(36, 36, 36)"
               />
-            </ExternalLink>
+            </div>
           );
         })}
       </div>
 
-      <div className="flex flex-row space-x-4 items-center text-gray-300 cursor-pointer ">
+      <div className="flex flex-row space-x-2 items-center text-gray-300 cursor-pointer ">
         {NAVIGATION_LINKS.map((link) => (
           <Link key={link} href={`#${link.toLowerCase()}`}>
             <p className="hidden text-xs text-gray-400 uppercase md:inline-flex">

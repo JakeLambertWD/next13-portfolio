@@ -16,8 +16,11 @@ export default function Projects({ personalProjects }: Props) {
       </h3>
 
       <div className="h-screen scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 scrollbar-thin relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory p-3 items-center z-20">
-        {personalProjects.map((project) => (
-          <div className="group relative cursor-pointer items-center w-[400px] h-[320px] md:w-[450px] md:h-[350px] snap-center flex-shrink-0 mx-4 transition-opacity duration-100 items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 rounded-xl">
+        {personalProjects.map((project, index) => (
+          <div
+            key={index}
+            className="group relative cursor-pointer items-center w-[400px] h-[320px] md:w-[450px] md:h-[350px] snap-center flex-shrink-0 mx-4 transition-opacity duration-100 items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 rounded-xl"
+          >
             <img
               className="h-full w-full object-cover transition-transform duration-500 group-hover:rotate-3 group-hover:scale-125"
               src={urlFor(project?.image).url()}

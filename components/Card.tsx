@@ -28,15 +28,17 @@ export default function Card({ experience }: Props) {
 
       <div className="px-0 md:px-10 w-full ">
         <p className="text-2xl font-light mb-3">{experience?.jobTitle}</p>
-        <p className="text-gray-300 uppercase text-sm">
-          {experience?.dateStarted} -{" "}
-          {experience?.dateEnded ? experience?.dateEnded : "Present"}
+        <div className="flex justify-between">
+          <p className="text-gray-300 uppercase text-sm">
+            {experience?.dateStarted} -{" "}
+            {experience?.dateEnded ? experience?.dateEnded : "Present"}
+          </p>
           {experience?.isCurrentlyWorkingHere && (
             <div className="badge badge-primary capitalize bg-[transparent] text-[#f7ab0a] border-[#f7ab0a] p-3 float-right">
               Working here
             </div>
           )}
-        </p>
+        </div>
 
         <div className="flex my-9 space-x-3">
           {experience?.technologies?.map((technology) => {

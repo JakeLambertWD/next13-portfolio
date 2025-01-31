@@ -4,5 +4,4 @@ export const NAVIGATION_LINKS = [
   "Experience",
   "About",
   "Contact",
-  "Resume",
 ];
