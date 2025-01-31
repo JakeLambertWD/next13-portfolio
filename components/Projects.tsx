@@ -8,9 +8,10 @@ import { urlFor } from "@/sanity/sanity-utils";
 type Props = {
   personalProjects: Project[];
 };
+
 export default function Projects({ personalProjects }: Props) {
   return (
-    <>
+    <div className="h-screen relative">
       <h3 className="absolute w-full text-center top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
@@ -66,6 +67,6 @@ export default function Projects({ personalProjects }: Props) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
