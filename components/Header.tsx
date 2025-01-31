@@ -1,17 +1,51 @@
 "use client";
 
 import { SocialIcon } from "react-social-icons";
-import { ExternalLink } from "react-external-link";
 import { Social } from "../typings";
-import { NAVIGATION_LINKS } from "@/app/constants";
-import { Link } from "react-daisyui";
+import { useEffect, useState } from "react";
 
 type Props = { socials: Social[] };
 
+const sections = ["projects", "skills", "experience", "about", "contact"];
+
 export default function Header({ socials }: Props) {
   // TODO: copy code from another project to change the favicon
+  const [activeSection, setActiveSection] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        const element = document.getElementById(section);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-20 flex justify-between px-12 py-2 mx-auto max-w-8xl bg-[#242424]">
+    <header
+      className="sticky top-0 flex justify-between px-12 py-2 mx-auto max-w-8xl bg-[#242424]"
+      style={{ zIndex: 101 }}
+    >
       <div className="flex flex-row items-start">
         {socials?.map((icon) => {
           const titleToLowerCase = icon.title.toLocaleLowerCase();
@@ -34,15 +68,20 @@ export default function Header({ socials }: Props) {
         })}
       </div>
 
-      <div className="flex flex-row space-x-2 items-center text-gray-300 cursor-pointer ">
-        {NAVIGATION_LINKS.map((link) => (
-          <Link key={link} href={`#${link.toLowerCase()}`}>
-            <p className="hidden text-xs text-gray-400 uppercase md:inline-flex">
-              {link}
-            </p>
-          </Link>
+      <nav className="flex flex-row space-x-2 items-center text-gray-300 cursor-pointer ">
+        {sections.map((section) => (
+          <a
+            key={section}
+            href={`#${section}`}
+            className={`text-xs py-2 text-gray-400 uppercase md:inline-flex ${
+              activeSection === section ? "border-b-2 border-[#f7ab0a]" : ""
+            }`}
+            style={{ fontFamily: "monospace" }}
+          >
+            {section}
+          </a>
         ))}
-      </div>
+      </nav>
     </header>
   );
 }
