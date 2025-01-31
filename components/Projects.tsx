@@ -11,12 +11,12 @@ type Props = {
 
 export default function Projects({ personalProjects }: Props) {
   return (
-    <div className="h-screen relative">
+    <div className="h-screen relative flex items-center justify-center">
       <h3 className="absolute w-full text-center top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
 
-      <div className="h-screen scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 scrollbar-thin relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory p-3 items-center z-20">
+      <div className="scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 scrollbar-thin relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory p-3 items-center pb-8 z-20">
         {personalProjects.map((project, index) => (
           <div
             key={index}
