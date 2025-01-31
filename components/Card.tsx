@@ -12,7 +12,7 @@ export default function Card({ experience }: Props) {
 
   return (
     <article className="card glass flex flex-col rounded-lg items-center space-y-1 flex-shrink-0 w-[350px] md:w-[430px] snap-center bg-[#292929] p-5 pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
-      <div className="h-[100px] md:h-[150px] flex items-center justify-center">
+      <div className="h-[70px] md:h-[150px] flex items-center justify-center">
         <img
           className={`object-cover object-center mb-7 ${
             experience.company === "Anmut" ? "mt-[-30px]" : ""
@@ -26,7 +26,7 @@ export default function Card({ experience }: Props) {
         />
       </div>
 
-      <div className="px-0 md:px-10 w-full ">
+      <div className="px-0 md:px-10 w-full">
         <p className="text-2xl font-light mb-3">{experience?.jobTitle}</p>
         <div className="flex justify-between">
           <p className="text-gray-300 uppercase text-sm">
