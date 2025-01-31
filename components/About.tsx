@@ -9,7 +9,9 @@ type Props = { pageInfo: PageInfo };
 export default function About({ pageInfo }: any) {
   return (
     <div className="relative flex flex-col items-center h-screen px-4 sm:px-10 mx-auto text-center lg:text-left lg:flex-row max-w-7xl justify-center">
-      <h3 className="absolute top-20 sm:top-24 uppercase tracking-[20px] text-gray-500 text-lg sm:text-2xl">About</h3>
+      <h3 className="absolute w-full text-center top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+        About
+      </h3>
 
       <motion.img
         src={urlFor(pageInfo?.profilePic).url()}
@@ -21,7 +23,9 @@ export default function About({ pageInfo }: any) {
       />
 
       <div className="px-0 md:px-20 lg:ml-12">
-        <h4 className="text-2xl md:text-4xl font-semibold uppercase mb-6 tracking-widest ">Get to know me</h4>
+        <h4 className="text-2xl md:text-4xl font-semibold uppercase mb-6 tracking-widest ">
+          Get to know me
+        </h4>
         <p className="text-sm sm:text-lg text-center xl:text-left tracking-[3px] leading-relaxed">
           {pageInfo?.backgroundInformation}
         </p>
