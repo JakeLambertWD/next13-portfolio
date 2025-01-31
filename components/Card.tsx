@@ -60,7 +60,7 @@ export default function Card({ experience }: Props) {
           })}
         </div>
 
-        <ul className="ml-2 space-y-2 h-[30px] overflow-y-scroll text-base list-disc pr-2 text-md">
+        <ul className="ml-2 space-y-2 overflow-y-scroll text-base list-disc pr-2 overflow-y-scroll h-48 sm:h-64 text-md">
           {experience?.points?.map((point, i) => <li key={i}>{point}</li>)}
         </ul>
       </div>
