@@ -33,6 +33,7 @@ export default function Projects({ personalProjects }: Props) {
                       <div
                         key={tech?._id}
                         className="tooltip"
+                        style={{ placeSelf: "center" }}
                         data-tip={tech.title}
                       >
                         <Image
@@ -48,12 +49,14 @@ export default function Projects({ personalProjects }: Props) {
               </div>
               <div className="card-actions mb-6 mx-auto">
                 <ExternalLink href={project?.linkToBuild}>
-                  <button className="btn btn-primary btn-sm mr-2">
+                  <button className="btn btn-primary btn-sm mr-2 border-none bg-[#f7ab0a] hover:bg-[#f7ab0a] text-black">
                     View site
                   </button>
                 </ExternalLink>
                 <ExternalLink href={project?.linkToCode}>
-                  <button className="btn btn-primary btn-sm">View code</button>
+                  <button className="btn btn-primary btn-sm border-none bg-[#f7ab0a] hover:bg-[#f7ab0a] text-black">
+                    View code
+                  </button>
                 </ExternalLink>
               </div>
             </div>
