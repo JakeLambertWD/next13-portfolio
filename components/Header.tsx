@@ -6,7 +6,14 @@ import { useEffect, useState } from "react";
 
 type Props = { socials: Social[] };
 
-const sections = ["projects", "skills", "experience", "about", "contact"];
+const sections = [
+  "home",
+  "projects",
+  "skills",
+  "experience",
+  "about",
+  "contact",
+];
 
 export default function Header({ socials }: Props) {
   // TODO: copy code from another project to change the favicon
@@ -43,7 +50,7 @@ export default function Header({ socials }: Props) {
 
   return (
     <header
-      className="sticky top-0 flex justify-between px-12 py-2 mx-auto max-w-8xl bg-[#242424]"
+      className="sticky top-0 flex justify-between px-12 py-2 mx-auto max-w-8xl"
       style={{ zIndex: 101 }}
     >
       <div className="flex flex-row items-start">
@@ -56,7 +63,7 @@ export default function Header({ socials }: Props) {
               onClick={() =>
                 window.open(icon.url, "_blank", "noopener noreferrer")
               }
-              style={{ cursor: "pointer" }}
+              style={{ cursor: "pointer", zIndex: 150 }}
             >
               <SocialIcon
                 network={titleToLowerCase}
@@ -69,20 +76,25 @@ export default function Header({ socials }: Props) {
       </div>
 
       <nav className="hidden md:flex absolute right-8 top-4 flex flex-col items-end text-gray-300 cursor-pointer">
-        {sections.map((section) => (
-          <a
-            key={section}
-            href={`#${section}`}
-            className={`text-xs text-right cursor-pointer py-1 text-gray-400 uppercase md:inline-flex ${
-              activeSection === section
-                ? "border-r-2 pr-2 border-[#f7ab0a]"
-                : ""
-            }`}
-            style={{ fontFamily: "monospace" }}
-          >
-            {section}
-          </a>
-        ))}
+        {sections.map((section) => {
+          // hide home section from the nav
+          if (section === "home") return null;
+
+          return (
+            <a
+              key={section}
+              href={`#${section}`}
+              className={`text-xs text-right cursor-pointer py-1 text-gray-400 uppercase md:inline-flex ${
+                activeSection === section
+                  ? "border-r-2 pr-2 border-[#f7ab0a]"
+                  : ""
+              }`}
+              style={{ fontFamily: "monospace" }}
+            >
+              {section}
+            </a>
+          );
+        })}
       </nav>
     </header>
   );
