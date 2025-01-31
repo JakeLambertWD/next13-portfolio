@@ -36,8 +36,8 @@ export default function Hero({ pageInfo }: any) {
 
         <button
           className="btn bg-transparent btn-sm mt-6 border border-[#f7ab0a] hover:bg-[#f7ab0a] hover:text-[black] text-[#f7ab0a] cursor-pointer"
-          style={{ zIndex: 102 }}
           onClick={() => console.log("Resume clicked")}
+          style={{ zIndex: 50 }}
         >
           Resume
         </button>

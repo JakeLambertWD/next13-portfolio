@@ -50,7 +50,7 @@ export default function Header({ socials }: Props) {
 
   return (
     <header
-      className="sticky top-0 flex justify-between px-12 py-2 mx-auto max-w-8xl"
+      className="sticky top-0 flex justify-between px-4 py-2 mx-auto max-w-8xl"
       style={{ zIndex: 101 }}
     >
       <div className="flex flex-row items-start">
