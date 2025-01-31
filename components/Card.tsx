@@ -11,7 +11,7 @@ export default function Card({ experience }: Props) {
   // TODO: Edit Company logos in Lightroom
 
   return (
-    <article className="card glass flex flex-col rounded-lg items-center space-y-1 flex-shrink-0 w-[350px] md:w-[430px] snap-center bg-[#292929] p-5 pt-2  md:pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
+    <article className="card glass flex flex-col rounded-lg items-center space-y-1 flex-shrink-0 w-[350px] md:w-[430px] snap-center bg-[#292929] p-5 pt-10 opacity-90 hover:opacity-100 cursor-pointer transition-opacity duration-100 overflow-hidden">
       <div className="h-[100px] md:h-[150px] flex items-center justify-center">
         <img
           className={`object-cover object-center mb-7 ${
@@ -58,7 +58,7 @@ export default function Card({ experience }: Props) {
           })}
         </div>
 
-        <ul className="ml-2 space-y-2 overflow-y-scroll text-base list-disc max-h-96 pr-2 overflow-y-scroll h-48 md:h-56 lg:h-64 text-md">
+        <ul className="ml-2 space-y-2 overflow-y-scroll text-base list-disc max-h-fit pr-2 overflow-y-scroll h-64 text-md">
           {experience?.points?.map((point, i) => (
             <li key={i}>{point}</li>
           ))}
