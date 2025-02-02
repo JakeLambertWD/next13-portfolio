@@ -21,7 +21,7 @@ export default function Hero({ pageInfo }: any) {
     <div className="relative flex flex-col items-center justify-center h-screen space-y-6 overflow-hidden text-center">
       <BackgroundCircles />
       <img
-        className="mx-auto rounded-full object-cover object-center w-48 h-48 md:w-48 md:h-48"
+        className="mx-auto rounded-full object-cover object-center w-40 h-40 md:w-48 md:h-48"
         src={urlFor(pageInfo?.heroImage).url()}
         alt={pageInfo?.name}
       />
