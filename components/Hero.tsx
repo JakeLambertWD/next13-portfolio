@@ -10,6 +10,13 @@ export default function Hero({ pageInfo }: any) {
     delaySpeed: 2000,
   });
 
+  const handleResumeDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/resume.pdf"; // Ensure this path is correct and the file is accessible
+    link.download = "resume.pdf";
+    link.click();
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center h-screen space-y-6 overflow-hidden text-center">
       <BackgroundCircles />
@@ -18,7 +25,7 @@ export default function Hero({ pageInfo }: any) {
         src={urlFor(pageInfo?.heroImage).url()}
         alt={pageInfo?.name}
       />
-      <div>
+      <div style={{ zIndex: 50 }}>
         <h2 className="uppercase text-sm text-gray-500 pb-4 tracking-[16px]">
           {pageInfo?.role}
         </h2>
@@ -35,9 +42,8 @@ export default function Hero({ pageInfo }: any) {
         </h1>
 
         <button
-          className="btn bg-transparent btn-sm mt-6 border border-[#f7ab0a] hover:bg-[#f7ab0a] hover:text-[black] text-[#f7ab0a] cursor-pointer"
-          onClick={() => console.log("Resume clicked")}
-          style={{ zIndex: 50 }}
+          className="btn bg-transparent btn-sm mt-6 border border-[#f7ab0a] hover:bg-[#f7ab0a] hover:text-[black] text-[#f7ab0a] cursor-pointer z-[100]"
+          onClick={handleResumeDownload}
         >
           Resume
         </button>
