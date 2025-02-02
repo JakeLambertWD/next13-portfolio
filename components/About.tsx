@@ -19,11 +19,11 @@ export default function About({ pageInfo }: any) {
         whileInView={{ x: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1 }}
-        className="mt-24 md:mt-4 mb-10 lg:mb-0  flex-shrink-0 rounded-md w-36  md:w-52 md:h-52 lg:w-96 lg:h-96 object-cover md:rounded-lg"
+        className="mt-4 mb-12 lg:mb-0  flex-shrink-0 rounded-md w-52 h-52 lg:w-96 lg:h-96 object-cover md:rounded-lg"
       />
 
       <div className="px-0 md:px-20 lg:ml-12">
-        <h4 className="text-2xl md:text-4xl font-semibold uppercase mb-6 tracking-widest ">
+        <h4 className="text-2xl md:text-4xl font-semibold uppercase mb-10 sm:mb-6 tracking-widest ">
           Get to know me
         </h4>
         <p className="text-sm sm:text-lg text-center xl:text-left tracking-[3px] leading-relaxed">
