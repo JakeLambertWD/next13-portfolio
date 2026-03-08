@@ -13,9 +13,6 @@ import {
   getSkill,
   getProjects,
 } from "@/sanity/sanity-utils";
-import { urlFor } from "@/sanity/sanity-utils";
-import Image from "next/image";
-import { ExternalLink } from "react-external-link";
 
 export default async function Home() {
   const socials = await getSocials();

@@ -4,19 +4,27 @@ import { ExternalLink } from "react-external-link";
 import { Project } from "../typings";
 import Image from "next/image";
 import { urlFor } from "@/sanity/sanity-utils";
+import { useHorizontalScrollThumb } from "@/hooks/useHorizontalScrollThumb";
 
 type Props = {
   personalProjects: Project[];
 };
 
 export default function Projects({ personalProjects }: Props) {
+  const { scrollerRef, thumbWidth, thumbX } = useHorizontalScrollThumb({
+    deps: [personalProjects.length],
+  });
+
   return (
     <div className="h-screen relative flex items-center justify-center">
       <h3 className="absolute w-full text-center top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
         Projects
       </h3>
 
-      <div className="scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#f7ab0a]/80 scrollbar-thin relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory p-3 items-center pb-8 z-20">
+      <div
+        ref={scrollerRef}
+        className="relative w-full flex overflow-x-scroll overflow-y-hidden snap-x snap-mandatory p-3 items-center pb-8 z-20 scrollbar-none [&::-webkit-scrollbar]:hidden"
+      >
         {personalProjects.map((project, index) => (
           <div
             key={index}
@@ -66,6 +74,16 @@ export default function Projects({ personalProjects }: Props) {
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="pointer-events-none absolute bottom-32 left-0 right-0 mx-auto h-1.5 w-[90%] rounded-full bg-gray-400/20">
+        <div
+          className="absolute left-0 top-0 h-full rounded-full bg-[#f7ab0a]/80 transition-all duration-100"
+          style={{
+            width: `${thumbWidth}%`,
+            left: `${thumbX}%`,
+          }}
+        />
       </div>
     </div>
   );
