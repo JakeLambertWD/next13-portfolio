@@ -38,9 +38,7 @@ export default function Hero({ pageInfo }: any) {
           >
             {text}
           </code>
-          <Cursor
-            cursorColor="red" // "#f7ab0a"
-          />
+          <Cursor cursorColor="#f7ab0a" />
         </h1>
 
         <button
