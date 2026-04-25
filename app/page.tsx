@@ -14,6 +14,9 @@ import {
   getProjects,
 } from "@/sanity/sanity-utils";
 
+// Revalidate this page in production so Sanity content updates appear without a full redeploy.
+export const revalidate = 60;
+
 export default async function Home() {
   const socials = await getSocials();
   const pageInfo = await getPageinfo();

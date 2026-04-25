@@ -6,6 +6,7 @@ const config = {
   projectId: "m45u25nb",
   dataset: "production",
   apiVersion: "2023-06-04",
+  useCdn: false,
 };
 
 const client = createClient(config);
