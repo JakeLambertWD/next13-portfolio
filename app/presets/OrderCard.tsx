@@ -18,7 +18,7 @@ export default function OrderCard() {
           Preset Pack
         </span>
         <span className="rounded-full bg-[#d97706] px-2.5 py-1 text-xs font-extrabold text-[#0a0c0e]">
-          £14
+          £20
         </span>
       </div>
 
@@ -47,6 +47,7 @@ export default function OrderCard() {
       >
         Buy now — £10
       </a>
+        {isLoading ? "Opening secure checkout..." : "Buy now — £20"}
 
       <TrustBar />
     </div>
