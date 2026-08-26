@@ -17,7 +17,7 @@ export default function OrderCard() {
           Preset Pack
         </span>
         <span className="rounded-full bg-[#d97706] px-2.5 py-1 text-xs font-extrabold text-[#0a0c0e]">
-          £10
+          £14
         </span>
       </div>
 
@@ -25,7 +25,7 @@ export default function OrderCard() {
         The Complete Collection
       </h2>
       <p className="mt-1 text-xs text-[#8a8f94]">
-        49 presets · 9 collections · one-time payment
+        50 presets · 10 collections · one-time payment
       </p>
 
       <ul className="mt-5 flex flex-col gap-2.5">

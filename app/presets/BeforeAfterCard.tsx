@@ -26,8 +26,6 @@ export default function BeforeAfterCard({ beforeSrc, afterSrc }: Props) {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url('${afterSrc}')`,
-            filter:
-              "saturate(1.3) contrast(1.12) brightness(1.03) hue-rotate(-4deg)",
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c0e]/25 via-transparent to-[#5eb8b0]/10" />
