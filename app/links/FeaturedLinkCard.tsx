@@ -14,9 +14,9 @@ export default function FeaturedLinkCard({ href, title, subtitle, price }: Props
     <a
       href={href}
       className="group relative block w-full overflow-hidden rounded-2xl border border-[#5eb8b0]/40 bg-cover bg-center p-6 transition-colors hover:border-[#5eb8b0]/70"
-      style={{ backgroundImage: "url('/IMG_5191.jpg')" }}
+      style={{ backgroundImage: "url('/IMG_9014-Edit.jpg')" }}
     >
-      <div className="absolute inset-0 bg-[#0a0c0e]/65 transition-colors group-hover:bg-[#0a0c0e]/55" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0c0e]/70 via-[#0a0c0e]/65 to-[#0a0c0e]/75 transition-colors" />
 
       <div className="relative z-10 flex items-center justify-between">
         <span className="inline-flex items-center gap-1.5 rounded-full border border-[#5eb8b0]/40 bg-[#0a0c0e]/60 px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#5eb8b0]">

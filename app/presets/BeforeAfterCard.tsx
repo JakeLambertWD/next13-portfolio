@@ -32,7 +32,7 @@ export default function BeforeAfterCard({ beforeSrc, afterSrc }: Props) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0c0e]/25 via-transparent to-[#5eb8b0]/10" />
         <div className="absolute right-3 top-3 rounded-md bg-[#5eb8b0] px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-[#0a0c0e]">
-          After - Night Skyline Preset
+          After
         </div>
       </div>
     </div>

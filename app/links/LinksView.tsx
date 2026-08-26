@@ -48,10 +48,10 @@ export default function LinksView() {
         {/* featured: preset pack */}
         <div className="mt-9 w-full">
           <FeaturedLinkCard
-            href="#" // TODO: replace with the real checkout link once /presets is live
+            href='/presets' 
             title="Lightroom Preset Pack"
-            subtitle="49 presets · 9 collections"
-            price="£10"
+            subtitle="50 presets · 10 collections"
+            price="£14"
           />
         </div>
 
