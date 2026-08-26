@@ -251,17 +251,17 @@ export default function PresetsView() {
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="grid grid-cols-1 gap-10 px-6 py-14 lg:grid-cols-[1fr_360px] lg:gap-14 lg:px-16 lg:py-16"
+        className="grid grid-cols-1 gap-10 px-6 py-14 pt-4 lg:grid-cols-[1fr_360px] lg:gap-14 lg:px-16 lg:py-16"
       >
         <div className="flex flex-col gap-7">
           <div>
             <h1 className="text-3xl font-extrabold leading-tight lg:text-[42px]">
-              50 Lightroom presets, built from real London photos
+              50 Lightroom presets
             </h1>
-            <p className="mt-3.5 max-w-xl text-[15px] leading-relaxed text-[#c9cdd1] lg:text-[17px]">
-              The exact edits behind every @lamberts.lens post, grouped into 10
-              cinematic collections. One preset pack, one download, ready in
-              Lightroom in seconds.
+            <p className="mt-3.5 max-w-xxl text-[12px] leading-relaxed text-[#c9cdd1] lg:text-[17px]">
+              Presets are a starting point, and results vary with each photo.
+              Adjust white balance, exposure, or temperature as needed,
+              especially in different lighting conditions.
             </p>
           </div>
 

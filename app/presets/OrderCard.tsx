@@ -1,10 +1,11 @@
 "use client";
 
 import { CheckIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import TrustBar from "./TrustBar";
 
 const FEATURES = [
-  "49 presets across 9 cinematic collections",
+  "50 presets across 10 cinematic collections",
   "Works in Lightroom Classic, CC & mobile",
   "Delivered instantly to your email",
 ];
