@@ -21,14 +21,12 @@ export default function OrderCard() {
           £20
         </span>
       </div>
-
       <h2 className="text-xl font-extrabold text-[#f4f1ea]">
         The Complete Collection
       </h2>
       <p className="mt-1 text-xs text-[#8a8f94]">
         50 presets · 10 collections · one-time payment
       </p>
-
       <ul className="mt-5 flex flex-col gap-2.5">
         {FEATURES.map((feature) => (
           <li
@@ -40,15 +38,12 @@ export default function OrderCard() {
           </li>
         ))}
       </ul>
-
       <a
         href="#" // TODO: replace with the real Payhip checkout link/embed once set up
         className="mt-6 block w-full rounded-lg bg-[#5eb8b0] py-3.5 text-center text-[15px] font-extrabold text-[#0a0c0e] transition-colors hover:bg-[#7fcac3]"
       >
-        Buy now — £10
+        Buy now — £20
       </a>
-        {isLoading ? "Opening secure checkout..." : "Buy now — £20"}
-
       <TrustBar />
     </div>
   );
