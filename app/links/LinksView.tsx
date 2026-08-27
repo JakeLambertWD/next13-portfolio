@@ -8,12 +8,15 @@ import LinkButton from "./LinkButton";
 
 const SocialIcon = dynamic(
   () => import("react-social-icons").then((module) => module.SocialIcon),
-  { ssr: false }
+  { ssr: false },
 );
 
 // fonts
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400" });
-const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export default function LinksView() {
   return (
