@@ -1,4 +1,7 @@
+"use client";
+
 import { CheckIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
 import TrustBar from "./TrustBar";
 
 const FEATURES = [
@@ -8,6 +11,41 @@ const FEATURES = [
 ];
 
 export default function OrderCard() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  async function startCheckout() {
+    // Guard against duplicate requests, including rapid keyboard activation.
+    if (isLoading) {
+      return;
+    }
+
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/checkout", { method: "POST" });
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || typeof data.url !== "string" || !data.url) {
+        throw new Error(
+          typeof data.error === "string"
+            ? data.error
+            : "Checkout is unavailable right now.",
+        );
+      }
+
+      window.location.assign(data.url);
+    } catch (checkoutError) {
+      setError(
+        checkoutError instanceof Error
+          ? checkoutError.message
+          : "Checkout is unavailable right now.",
+      );
+      setIsLoading(false);
+    }
+  }
+
   return (
     <div className="w-full max-w-md rounded-2xl border border-[#5eb8b0]/35 bg-gradient-to-b from-[#5eb8b0]/[0.08] to-[#141618] to-60% p-7">
       <div className="mb-4 flex items-center justify-between">
@@ -37,11 +75,18 @@ export default function OrderCard() {
       </ul>
       <button
         type="button"
-        disabled
-        className="mt-6 block w-full cursor-not-allowed rounded-lg bg-[#5eb8b0]/50 py-3.5 text-center text-[15px] font-extrabold text-[#0a0c0e]/70"
+        onClick={startCheckout}
+        disabled={isLoading}
+        aria-busy={isLoading}
+        className="mt-6 block w-full rounded-lg bg-[#5eb8b0] py-3.5 text-center text-[15px] font-extrabold text-[#0a0c0e] transition-colors hover:bg-[#7fcac3] disabled:cursor-wait disabled:opacity-60"
       >
-        Checkout coming soon
+        {isLoading ? "Opening secure checkout..." : "Buy now — £20"}
       </button>
+      {error && (
+        <p role="alert" className="mt-3 text-center text-xs text-red-300">
+          {error}
+        </p>
+      )}
       <TrustBar />
     </div>
   );
