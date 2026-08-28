@@ -29,6 +29,10 @@ pnpm-workspace.yaml
 # local env files
 .env*.local
 
+# private digital products
+/downloads/*
+!/downloads/.gitkeep
+
 # vercel
 .vercel
 
