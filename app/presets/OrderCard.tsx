@@ -1,13 +1,10 @@
-"use client";
-
 import { CheckIcon } from "@heroicons/react/24/solid";
-import { useState } from "react";
 import TrustBar from "./TrustBar";
 
 const FEATURES = [
   "50 presets across 10 cinematic collections",
   "Works in Lightroom Classic, CC & mobile",
-  "Delivered instantly to your email",
+  "Secure digital download after purchase",
 ];
 
 export default function OrderCard() {
@@ -38,12 +35,13 @@ export default function OrderCard() {
           </li>
         ))}
       </ul>
-      <a
-        href="#" // TODO: replace with the real Payhip checkout link/embed once set up
-        className="mt-6 block w-full rounded-lg bg-[#5eb8b0] py-3.5 text-center text-[15px] font-extrabold text-[#0a0c0e] transition-colors hover:bg-[#7fcac3]"
+      <button
+        type="button"
+        disabled
+        className="mt-6 block w-full cursor-not-allowed rounded-lg bg-[#5eb8b0]/50 py-3.5 text-center text-[15px] font-extrabold text-[#0a0c0e]/70"
       >
-        Buy now — £20
-      </a>
+        Checkout coming soon
+      </button>
       <TrustBar />
     </div>
   );
