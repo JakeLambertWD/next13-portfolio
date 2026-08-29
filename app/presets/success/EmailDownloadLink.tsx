@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   sessionId: string;
@@ -8,17 +8,21 @@ type Props = {
 
 export default function EmailDownloadLink({ sessionId }: Props) {
   const [message, setMessage] = useState(
-    "Need a backup link? Request it here.",
+    "Sending your download link to your email...",
   );
 
-  async function sendEmail() {
-    setMessage("Sending a backup link to your email...");
+  async function sendEmail(delivery: "initial" | "backup") {
+    setMessage(
+      delivery === "initial"
+        ? "Sending your download link to your email..."
+        : "Sending a backup link to your email...",
+    );
 
     try {
       const response = await fetch("/api/presets/email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sessionId }),
+        body: JSON.stringify({ sessionId, delivery }),
       });
       const data = await response.json().catch(() => ({}));
 
@@ -42,12 +46,16 @@ export default function EmailDownloadLink({ sessionId }: Props) {
     }
   }
 
+  useEffect(() => {
+    void sendEmail("initial");
+  }, []);
+
   return (
     <div className="mt-4 text-xs text-[#8a8f94]">
       <p aria-live="polite">{message}</p>
       <button
         type="button"
-        onClick={sendEmail}
+        onClick={() => void sendEmail("backup")}
         className="mt-2 font-bold text-[#5eb8b0] hover:text-[#7fcac3]"
       >
         Email me the link again

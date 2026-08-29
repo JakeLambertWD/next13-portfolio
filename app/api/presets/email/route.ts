@@ -51,9 +51,10 @@ async function getPaidCustomerDetails(sessionId: string) {
 
 export async function POST(request: Request) {
   let sessionId: unknown;
+  let delivery: unknown;
 
   try {
-    ({ sessionId } = await request.json());
+    ({ sessionId, delivery } = await request.json());
   } catch {
     return NextResponse.json(
       { error: "Unable to send the email." },
@@ -80,7 +81,10 @@ export async function POST(request: Request) {
     await sendPresetDownloadEmail({
       ...customer,
       sessionId,
-      idempotencyKey: `preset-download/backup/${sessionId}/${crypto.randomUUID()}`,
+      idempotencyKey:
+        delivery === "initial"
+          ? `preset-download/initial/${sessionId}`
+          : `preset-download/backup/${sessionId}/${crypto.randomUUID()}`,
     });
     return NextResponse.json({ sent: true });
   } catch (error) {
