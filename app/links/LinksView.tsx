@@ -65,12 +65,21 @@ export default function LinksView() {
             title="VSGO Gear Discount"
             subtitle="Code: [VSGO CODE]"
             comingSoon
+            disabled
           />
           <LinkButton
             href="#" // TODO: replace with the real photography portfolio URL
             title="Photography Portfolio"
             subtitle="Full galleries & bookings"
             comingSoon
+            disabled
+          />
+          <LinkButton
+            href="#" // TODO: replace with the Buy Me a Coffee URL
+            title="Buy Jake a Coffee"
+            subtitle="Support my photography"
+            comingSoon
+            disabled
           />
         </div>
 

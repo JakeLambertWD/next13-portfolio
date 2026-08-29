@@ -7,6 +7,7 @@ type Props = {
   title: string;
   subtitle: string;
   comingSoon?: boolean;
+  disabled?: boolean;
 };
 
 export default function LinkButton({
@@ -14,11 +15,19 @@ export default function LinkButton({
   title,
   subtitle,
   comingSoon = false,
+  disabled = false,
 }: Props) {
   return (
     <a
       href={href}
-      className="flex w-full items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-4 transition-colors hover:border-white/20 hover:bg-white/[0.06]"
+      aria-disabled={disabled}
+      tabIndex={disabled ? -1 : undefined}
+      onClick={disabled ? (event) => event.preventDefault() : undefined}
+      className={`flex w-full items-center justify-between rounded-xl border border-white/10 bg-white/[0.03] px-4 py-4 transition-colors ${
+        disabled
+          ? "cursor-not-allowed opacity-60"
+          : "hover:border-white/20 hover:bg-white/[0.06]"
+      }`}
     >
       <span>
         <span className="flex items-center gap-2">
