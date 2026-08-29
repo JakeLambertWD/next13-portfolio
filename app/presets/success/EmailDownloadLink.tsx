@@ -7,17 +7,11 @@ type Props = {
 };
 
 export default function EmailDownloadLink({ sessionId }: Props) {
-  const sentKey = `preset-email-sent:${sessionId}`;
   const [message, setMessage] = useState(
     "Need a backup link? Request it here.",
   );
 
   async function sendEmail() {
-    if (window.sessionStorage.getItem(sentKey)) {
-      setMessage("A backup download link was sent to your email.");
-      return;
-    }
-
     setMessage("Sending a backup link to your email...");
 
     try {
@@ -40,7 +34,6 @@ export default function EmailDownloadLink({ sessionId }: Props) {
         );
       }
 
-      window.sessionStorage.setItem(sentKey, "true");
       setMessage("A backup download link was sent to your email.");
     } catch (error) {
       setMessage(
