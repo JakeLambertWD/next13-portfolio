@@ -32,9 +32,8 @@ export async function sendPresetDownloadEmail({
       <p>This link expires in 7 days. Please do not share it because it is tied to your purchase.</p>
       <p>If you need help, contact ${supportEmail}.</p>
     `,
-    headers: {
-      "X-Entity-Ref-ID": `preset-download-${sessionId}`,
-    },
+  }, {
+    idempotencyKey: `preset-download/${sessionId}`,
   });
 
   if (result.error) {

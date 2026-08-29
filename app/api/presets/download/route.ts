@@ -2,6 +2,7 @@ import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { Readable } from "node:stream";
 import Stripe from "stripe";
+import { get } from "@vercel/blob";
 import { NextResponse } from "next/server";
 import { presetDownloadPath } from "../../../../lib/preset-download";
 import { getSessionIdFromPresetDownloadToken } from "../../../../lib/preset-download-token";
@@ -53,6 +54,25 @@ export async function GET(request: Request) {
   }
 
   try {
+    const blobPath = process.env.PRESET_DOWNLOAD_BLOB_PATH;
+
+    if (blobPath) {
+      const blob = await get(blobPath, { access: "private" });
+
+      if (!blob) {
+        throw new Error(`Preset download blob was not found: ${blobPath}`);
+      }
+
+      return new NextResponse(blob.stream, {
+        headers: {
+          "Content-Disposition":
+            'attachment; filename="Lamberts Lens Preset Pack.zip"',
+          "Content-Type": blob.blob.contentType || "application/zip",
+          "Cache-Control": "private, no-store",
+        },
+      });
+    }
+
     const fileInfo = await stat(presetDownloadPath);
     if (!fileInfo.isFile()) {
       throw new Error("Preset download path is not a file.");

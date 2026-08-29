@@ -2,10 +2,6 @@ import { createHmac } from "node:crypto";
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { sendPresetDownloadEmail } from "../../../../lib/preset-email";
-import {
-  hasProcessedSession,
-  markSessionProcessed,
-} from "../../../../lib/webhook-dedupe";
 
 export const runtime = "nodejs";
 
@@ -61,12 +57,6 @@ async function handleCheckoutSessionCompleted(sessionId: string) {
     throw new Error("Stripe is not configured.");
   }
 
-  // Check for duplicate processing.
-  if (await hasProcessedSession(sessionId)) {
-    console.log(`[webhook] Session ${sessionId} already processed.`);
-    return;
-  }
-
   try {
     const stripe = new Stripe(secretKey);
     const session = await stripe.checkout.sessions.retrieve(sessionId, {
@@ -91,14 +81,6 @@ async function handleCheckoutSessionCompleted(sessionId: string) {
 
     if (!customerEmail) {
       console.error(`[webhook] Session ${sessionId} has no customer email.`);
-      return;
-    }
-
-    // Mark as processed before sending email.
-    // If email fails, the webhook can be replayed.
-    const wasMarked = await markSessionProcessed(sessionId);
-    if (!wasMarked) {
-      console.log(`[webhook] Session ${sessionId} already processed.`);
       return;
     }
 
