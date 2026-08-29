@@ -4,6 +4,7 @@ import { Readable } from "node:stream";
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { presetDownloadPath } from "../../../../lib/preset-download";
+import { getSessionIdFromPresetDownloadToken } from "../../../../lib/preset-download-token";
 
 export const runtime = "nodejs";
 
@@ -38,7 +39,11 @@ async function hasPaidForPresetPack(sessionId: string) {
 }
 
 export async function GET(request: Request) {
-  const sessionId = new URL(request.url).searchParams.get("session_id");
+  const searchParams = new URL(request.url).searchParams;
+  const token = searchParams.get("token");
+  const sessionId = token
+    ? getSessionIdFromPresetDownloadToken(token)
+    : searchParams.get("session_id");
 
   if (!sessionId || !(await hasPaidForPresetPack(sessionId))) {
     return NextResponse.json(

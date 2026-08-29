@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Stripe from "stripe";
+import EmailDownloadLink from "./EmailDownloadLink";
 
 type Props = {
   searchParams: Promise<{ session_id?: string }>;
@@ -70,6 +71,7 @@ export default async function PresetPurchaseSuccess({ searchParams }: Props) {
             >
               Download preset pack
             </a>
+            <EmailDownloadLink sessionId={session.id} />
           </>
         ) : (
           <>
