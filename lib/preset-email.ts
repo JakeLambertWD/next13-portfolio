@@ -12,7 +12,7 @@ export async function sendPresetDownloadEmail({
 }: SendPresetEmailArgs) {
   const apiKey = process.env.RESEND_API_KEY;
   const emailFrom = process.env.EMAIL_FROM;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const siteUrl = process.env.SITE_URL;
   const supportEmail = process.env.SUPPORT_EMAIL;
 
   if (!apiKey || !emailFrom || !siteUrl || !supportEmail) {

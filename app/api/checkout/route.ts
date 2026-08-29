@@ -5,7 +5,7 @@ export const runtime = "nodejs";
 
 // Use the configured site URL for Stripe redirects, with the request URL as a local fallback.
 function getSiteOrigin(request: Request) {
-  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const configuredUrl = process.env.SITE_URL;
 
   if (configuredUrl) {
     return new URL(configuredUrl).origin;
