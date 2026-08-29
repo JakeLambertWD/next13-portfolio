@@ -2,12 +2,12 @@ import { createHmac } from "node:crypto";
 import Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { sendPresetDownloadEmail } from "../../../../lib/preset-email";
+import {
+  hasProcessedSession,
+  markSessionProcessed,
+} from "../../../../lib/webhook-dedupe";
 
 export const runtime = "nodejs";
-
-// For production, replace this in-memory set with a database table.
-// Track processed session IDs to prevent duplicate emails and orders.
-const processedSessions = new Set<string>();
 
 function verifyWebhookSignature(
   body: string,
@@ -62,7 +62,7 @@ async function handleCheckoutSessionCompleted(sessionId: string) {
   }
 
   // Check for duplicate processing.
-  if (processedSessions.has(sessionId)) {
+  if (await hasProcessedSession(sessionId)) {
     console.log(`[webhook] Session ${sessionId} already processed.`);
     return;
   }
@@ -96,7 +96,11 @@ async function handleCheckoutSessionCompleted(sessionId: string) {
 
     // Mark as processed before sending email.
     // If email fails, the webhook can be replayed.
-    processedSessions.add(sessionId);
+    const wasMarked = await markSessionProcessed(sessionId);
+    if (!wasMarked) {
+      console.log(`[webhook] Session ${sessionId} already processed.`);
+      return;
+    }
 
     // Send the fulfillment email.
     try {

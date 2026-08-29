@@ -1,18 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Props = {
   sessionId: string;
 };
 
 export default function EmailDownloadLink({ sessionId }: Props) {
-  const [message, setMessage] = useState(
-    "Sending a backup link to your email...",
-  );
   const sentKey = `preset-email-sent:${sessionId}`;
+  const [message, setMessage] = useState(
+    "Need a backup link? Request it here.",
+  );
 
   async function sendEmail() {
+    if (window.sessionStorage.getItem(sentKey)) {
+      setMessage("A backup download link was sent to your email.");
+      return;
+    }
+
     setMessage("Sending a backup link to your email...");
 
     try {
@@ -39,15 +44,6 @@ export default function EmailDownloadLink({ sessionId }: Props) {
       );
     }
   }
-
-  useEffect(() => {
-    if (window.sessionStorage.getItem(sentKey)) {
-      setMessage("A backup download link was sent to your email.");
-      return;
-    }
-
-    void sendEmail();
-  }, [sessionId]);
 
   return (
     <div className="mt-4 text-xs text-[#8a8f94]">

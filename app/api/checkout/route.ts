@@ -3,9 +3,14 @@ import { NextResponse } from "next/server";
 
 export const runtime = "nodejs";
 
+function hasValidEmail(email: string | null | undefined) {
+  return Boolean(email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+}
+
 // Use the configured site URL for Stripe redirects, with the request URL as a local fallback.
 function getSiteOrigin(request: Request) {
-  const configuredUrl = process.env.SITE_URL;
+  const configuredUrl =
+    process.env.SITE_URL ?? process.env.NEXT_PUBLIC_SITE_URL;
 
   if (configuredUrl) {
     return new URL(configuredUrl).origin;
@@ -15,6 +20,29 @@ function getSiteOrigin(request: Request) {
 }
 
 export async function POST(request: Request) {
+  let payload: unknown;
+
+  try {
+    payload = await request.json();
+  } catch {
+    return NextResponse.json(
+      { error: "Please enter a valid email address before checkout." },
+      { status: 400 },
+    );
+  }
+
+  const email =
+    typeof payload === "object" && payload !== null && "email" in payload
+      ? String((payload as { email?: string }).email ?? "").trim()
+      : "";
+
+  if (!hasValidEmail(email)) {
+    return NextResponse.json(
+      { error: "Please enter a valid email address before checkout." },
+      { status: 400 },
+    );
+  }
+
   // Keep both values on the server so the browser cannot change the product or price.
   const secretKey = process.env.STRIPE_SECRET_KEY;
   const priceId = process.env.STRIPE_PRICE_ID;
@@ -44,6 +72,7 @@ export async function POST(request: Request) {
     const stripe = new Stripe(secretKey);
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
+      customer_email: email,
       managed_payments: { enabled: false },
       line_items: [{ price: priceId, quantity: 1 }],
       success_url: `${origin}/presets/success?session_id={CHECKOUT_SESSION_ID}`,

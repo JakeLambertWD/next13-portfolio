@@ -10,9 +10,14 @@ const FEATURES = [
   "Secure digital download after purchase",
 ];
 
+function hasValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export default function OrderCard() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
 
   async function startCheckout() {
     // Guard against duplicate requests, including rapid keyboard activation.
@@ -20,11 +25,21 @@ export default function OrderCard() {
       return;
     }
 
+    const trimmedEmail = email.trim();
+    if (!hasValidEmail(trimmedEmail)) {
+      setError("Please enter a valid email address before paying.");
+      return;
+    }
+
     setIsLoading(true);
     setError("");
 
     try {
-      const response = await fetch("/api/checkout", { method: "POST" });
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmedEmail }),
+      });
       const data = await response.json().catch(() => ({}));
 
       if (!response.ok || typeof data.url !== "string" || !data.url) {
@@ -73,6 +88,25 @@ export default function OrderCard() {
           </li>
         ))}
       </ul>
+
+      <label className="mt-6 block text-left text-xs font-bold uppercase tracking-[0.18em] text-[#c9cdd1]">
+        Email address
+        <input
+          type="email"
+          inputMode="email"
+          autoComplete="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder="you@example.com"
+          className="mt-2 w-full rounded-lg border border-[#5eb8b0]/35 bg-[#0d1012] px-3 py-2.5 text-sm text-[#f4f1ea] placeholder:text-[#7d8288] focus:border-[#5eb8b0] focus:outline-none"
+          aria-label="Email address for delivery"
+        />
+      </label>
+      <p className="mt-2 text-left text-xs text-[#8a8f94]">
+        We need your email so we can send your download link and delivery
+        details.
+      </p>
+
       <button
         type="button"
         onClick={startCheckout}
