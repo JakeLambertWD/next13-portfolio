@@ -64,11 +64,13 @@ export default function LinksView() {
             href="#" // TODO: replace with the real VSGO affiliate link + code
             title="VSGO Gear Discount"
             subtitle="Code: [VSGO CODE]"
+            comingSoon
           />
           <LinkButton
             href="#" // TODO: replace with the real photography portfolio URL
             title="Photography Portfolio"
             subtitle="Full galleries & bookings"
+            comingSoon
           />
         </div>
 
