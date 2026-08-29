@@ -77,7 +77,11 @@ export async function POST(request: Request) {
   }
 
   try {
-    await sendPresetDownloadEmail({ ...customer, sessionId });
+    await sendPresetDownloadEmail({
+      ...customer,
+      sessionId,
+      idempotencyKey: `preset-download/backup/${sessionId}/${crypto.randomUUID()}`,
+    });
     return NextResponse.json({ sent: true });
   } catch (error) {
     const requestId = crypto.randomUUID();

@@ -95,6 +95,7 @@ async function handleCheckoutSessionCompleted(sessionId: string) {
         customerEmail,
         sessionId,
         checkoutCreatedAt: session.created,
+        idempotencyKey: `preset-download/initial/${sessionId}`,
       });
       console.log(
         `[webhook] Email sent for session ${sessionId} to ${customerEmail}`,

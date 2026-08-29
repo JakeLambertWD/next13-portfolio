@@ -5,12 +5,14 @@ type SendPresetEmailArgs = {
   customerEmail: string;
   sessionId: string;
   checkoutCreatedAt: number;
+  idempotencyKey: string;
 };
 
 export async function sendPresetDownloadEmail({
   customerEmail,
   sessionId,
   checkoutCreatedAt,
+  idempotencyKey,
 }: SendPresetEmailArgs) {
   const apiKey = process.env.RESEND_API_KEY;
   const emailFrom = process.env.EMAIL_FROM;
@@ -37,7 +39,7 @@ export async function sendPresetDownloadEmail({
     `,
     },
     {
-      idempotencyKey: `preset-download/v2/${sessionId}`,
+      idempotencyKey,
     },
   );
 
