@@ -16,7 +16,7 @@ const manrope = Manrope({
 const COLLECTIONS = [
   {
     title: "Signature Grade",
-    description: "Core cinematic teal-orange, the versatile hero look",
+    description: "Core cinematic blue & orange, the versatile hero look",
     icon: (
       <svg
         width="22"
@@ -37,7 +37,7 @@ const COLLECTIONS = [
   },
   {
     title: "Night Skyline",
-    description: "Deep blue-black cityscapes, glowing windows",
+    description: "Midnight skylines, luminous windows",
     icon: (
       <svg
         width="22"
@@ -59,7 +59,7 @@ const COLLECTIONS = [
   },
   {
     title: "Urban Geometry",
-    description: "Puddle reflections and spiral staircases",
+    description: "Sculpted lines, mirrored streets, architectural rhythm",
     icon: (
       <svg
         width="22"
@@ -79,7 +79,7 @@ const COLLECTIONS = [
   },
   {
     title: "Motion Trails",
-    description: "Long-exposure light trails, panning shots",
+    description: "Long exposure light trails, panning shots",
     icon: (
       <svg
         width="22"
@@ -99,7 +99,7 @@ const COLLECTIONS = [
   },
   {
     title: "Cinematic Underground",
-    description: "Cool cyan-teal Tube & train scenes",
+    description: "Subterranean glow, cinematic journeys",
     icon: (
       <svg
         width="22"
@@ -120,7 +120,7 @@ const COLLECTIONS = [
   },
   {
     title: "Golden Dusk",
-    description: "Blue-violet sky, magenta highlight edges",
+    description: "Afterglow skies, soft light, lingering warmth",
     icon: (
       <svg
         width="22"
@@ -163,7 +163,7 @@ const COLLECTIONS = [
   },
   {
     title: "Electric Nights",
-    description: "Neon and traffic-light accented night shots",
+    description: "Neon and traffic light accented night shots",
     icon: (
       <svg
         width="22"
@@ -204,7 +204,7 @@ const COLLECTIONS = [
   },
   {
     title: "Adventure Earthy",
-    description: "Sun-baked trails, warm ochre and terracotta tones",
+    description: "Sun baked trails, warm ochre and terracotta tones",
     icon: (
       <svg
         width="22"
@@ -299,8 +299,8 @@ export default function PresetsView() {
             Ten collections. One purchase.
           </h3>
           <p className="mt-2 text-sm text-[#8a8f94]">
-            Every pack is grounded in real edits from real photos — not guesses
-            at a look.
+            Every pack is grounded in real edits from real photos not guesses at
+            a look.
           </p>
         </div>
 
