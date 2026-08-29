@@ -84,11 +84,17 @@ async function handleCheckoutSessionCompleted(sessionId: string) {
       return;
     }
 
+    if (!session.created) {
+      console.error(`[webhook] Session ${sessionId} has no creation time.`);
+      return;
+    }
+
     // Send the fulfillment email.
     try {
       await sendPresetDownloadEmail({
         customerEmail,
         sessionId,
+        checkoutCreatedAt: session.created,
       });
       console.log(
         `[webhook] Email sent for session ${sessionId} to ${customerEmail}`,

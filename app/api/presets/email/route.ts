@@ -12,7 +12,7 @@ function isValidEmail(email: string | null | undefined) {
   return Boolean(email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
 }
 
-async function getPaidCustomerEmail(sessionId: string) {
+async function getPaidCustomerDetails(sessionId: string) {
   const secretKey = process.env.STRIPE_SECRET_KEY;
   const priceId = process.env.STRIPE_PRICE_ID;
 
@@ -33,12 +33,16 @@ async function getPaidCustomerEmail(sessionId: string) {
       session.payment_status !== "paid" ||
       session.mode !== "payment" ||
       purchasedPriceId !== priceId ||
-      !isValidEmail(customerEmail)
+      !isValidEmail(customerEmail) ||
+      !session.created
     ) {
       return null;
     }
 
-    return customerEmail;
+    return {
+      customerEmail: customerEmail as string,
+      checkoutCreatedAt: session.created,
+    };
   } catch (error) {
     console.error("[api/presets/email] failed to verify session:", error);
     return null;
@@ -64,8 +68,8 @@ export async function POST(request: Request) {
     );
   }
 
-  const customerEmail = await getPaidCustomerEmail(sessionId);
-  if (!customerEmail) {
+  const customer = await getPaidCustomerDetails(sessionId);
+  if (!customer) {
     return NextResponse.json(
       { error: "Unable to send the email." },
       { status: 403 },
@@ -73,12 +77,16 @@ export async function POST(request: Request) {
   }
 
   try {
-    await sendPresetDownloadEmail({ customerEmail, sessionId });
+    await sendPresetDownloadEmail({ ...customer, sessionId });
     return NextResponse.json({ sent: true });
   } catch (error) {
-    console.error("[api/presets/email] delivery failed:", error);
+    const requestId = crypto.randomUUID();
+    console.error(`[api/presets/email] delivery failed (${requestId}):`, error);
     return NextResponse.json(
-      { error: "We could not send the download email. Please try again." },
+      {
+        error: "We could not send the download email. Please try again.",
+        requestId,
+      },
       { status: 503 },
     );
   }

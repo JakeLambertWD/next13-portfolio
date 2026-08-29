@@ -29,9 +29,13 @@ export default function EmailDownloadLink({ sessionId }: Props) {
       const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
+        const requestId =
+          typeof data.requestId === "string"
+            ? ` Reference: ${data.requestId}`
+            : "";
         throw new Error(
           typeof data.error === "string"
-            ? data.error
+            ? `${data.error}${requestId}`
             : "Email delivery failed.",
         );
       }

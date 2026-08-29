@@ -6,7 +6,10 @@ function getTokenSecret() {
   return process.env.DOWNLOAD_TOKEN_SECRET;
 }
 
-export function createPresetDownloadToken(sessionId: string) {
+export function createPresetDownloadToken(
+  sessionId: string,
+  checkoutCreatedAt: number,
+) {
   const secret = getTokenSecret();
   if (!secret) {
     throw new Error("DOWNLOAD_TOKEN_SECRET is not configured.");
@@ -14,7 +17,7 @@ export function createPresetDownloadToken(sessionId: string) {
 
   const payload = Buffer.from(
     JSON.stringify({
-      exp: Math.floor(Date.now() / 1000) + TOKEN_LIFETIME_SECONDS,
+      exp: checkoutCreatedAt + TOKEN_LIFETIME_SECONDS,
       sessionId,
     }),
   ).toString("base64url");
