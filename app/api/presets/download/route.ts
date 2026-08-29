@@ -11,10 +11,6 @@ function isValidSessionId(sessionId: string) {
   return /^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId);
 }
 
-function hasValidEmail(email: string | null | undefined) {
-  return Boolean(email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
-}
-
 async function hasPaidForPresetPack(sessionId: string) {
   const secretKey = process.env.STRIPE_SECRET_KEY;
   const priceId = process.env.STRIPE_PRICE_ID;
@@ -29,14 +25,11 @@ async function hasPaidForPresetPack(sessionId: string) {
       expand: ["line_items"],
     });
     const purchasedPriceId = session.line_items?.data[0]?.price?.id;
-    const customerEmail =
-      session.customer_details?.email ?? session.customer_email;
 
     return (
       session.payment_status === "paid" &&
       session.mode === "payment" &&
-      purchasedPriceId === priceId &&
-      hasValidEmail(customerEmail)
+      purchasedPriceId === priceId
     );
   } catch (error) {
     console.error("[api/presets/download] failed to verify session:", error);

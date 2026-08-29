@@ -86,7 +86,7 @@ export default async function PresetPurchaseSuccess({ searchParams }: Props) {
         )}
         <Link
           href="/presets"
-          className="mt-6 inline-block text-sm font-bold text-[#5eb8b0] hover:text-[#7fcac3]"
+          className="mt-6 inline-block text-sm font-bold text-[#5eb8b0] hover:text-[#7fcac3] pl-4"
         >
           Return to presets
         </Link>
