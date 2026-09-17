@@ -8,6 +8,7 @@ type Props = {
   subtitle: string;
   comingSoon?: boolean;
   disabled?: boolean;
+  openInNewTab?: boolean;
 };
 
 export default function LinkButton({
@@ -16,10 +17,13 @@ export default function LinkButton({
   subtitle,
   comingSoon = false,
   disabled = false,
+  openInNewTab = false,
 }: Props) {
   return (
     <a
       href={href}
+      target={openInNewTab ? "_blank" : undefined}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
       aria-disabled={disabled}
       tabIndex={disabled ? -1 : undefined}
       onClick={disabled ? (event) => event.preventDefault() : undefined}

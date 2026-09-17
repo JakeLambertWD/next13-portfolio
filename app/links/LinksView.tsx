@@ -61,11 +61,10 @@ export default function LinksView() {
         {/* secondary links */}
         <div className="mt-4 flex w-full flex-col gap-3">
           <LinkButton
-            href="#" // TODO: replace with the real VSGO affiliate link + code
-            title="VSGO Gear Discount"
-            subtitle="Code: [VSGO CODE]"
-            comingSoon
-            disabled
+            href="https://vsgotech.com/s/5e9b32" 
+            title="Get 15% off VSGO camera straps"
+            subtitle="Use code JLL15"
+            openInNewTab
           />
           <LinkButton
             href="#" // TODO: replace with the real photography portfolio URL
